@@ -15,8 +15,9 @@ PERMISSIONS="OWNERWRITE|READ_STCLEAR"
 
 if [ "$1" != "-z" ] 
 then 
-  echo "sealing to PCRS 0-13... " 
-  PCRS="-r0 -r1 -r2 -r3 -r4 -r5 -r6 -r7 -r8 -r9 -r10 -r11 -r12 -r13" 
+  # No secure bootloader available, so just use PCRs 0-7 and 10
+  echo "sealing to available PCRs " 
+  PCRS="-r0 -r1 -r2 -r3 -r4 -r5 -r6 -r7 -r10" 
 fi 
 
 read -s -p "Owner password: " OWNERPW
